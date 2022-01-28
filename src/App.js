@@ -1,43 +1,17 @@
-import ContentBox from "./components/ContentBox";
-import ContentBoxInput from "./components/ContentBoxInput";
-import StudentTable from "./components/StudentTable";
-import Table from "./components/Table";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 function App() {
-  const studentList = [
-    {
-      slno: "1",
-      name: "Suresh Kumar",
-      gender: "Male",
-    },
-    {
-      slno: "2",
-      name: "Mukesh Kumar",
-      gender: "Male",
-    },
-    {
-      slno: "3",
-      name: "Ramya",
-      gender: "Female",
-    },
-    {
-      slno: "4",
-      name: "Rajni",
-      gender: "Female",
-    },
-  ];
-
   return (
-    <div>
-      {/* <ContentBox message="From Props Message " /> */}
-      {/* <ContentBox message="From Props Message 2 " />
-      <ContentBox message="From Props Message 3" />
-      <ContentBox message="From Props Message 4" /> */}
-      {/* <ContentBoxInput />
-      <ContentBoxInput /> */}
-      {/* <Table /> */}
-      <StudentTable data={studentList}/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
