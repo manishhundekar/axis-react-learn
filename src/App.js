@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Form from "./pages/Form";
+import PromiseDemo from "./pages/PromiseDemo";
+import StudentsTable from "./pages/StudentsTable";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/form" element={<Form />} />
+        <Route exact path="/promise" element={<PromiseDemo />} />
+        <Route exact path="/studentstable" element={<StudentsTable />} />
       </Routes>
     </BrowserRouter>
   );
