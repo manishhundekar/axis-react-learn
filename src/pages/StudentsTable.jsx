@@ -19,7 +19,15 @@ export default function StudentsTable() {
         return res.json();
       })
       .then((data) => {
-          console.log(data)
+        console.log(data);
+        const keysList = Object.keys(data);
+        const dataList = [];
+        keysList.map((key) => {
+          dataList.push(data[key]);
+        });
+        console.log(dataList);
+        setStudentsData(dataList)
+        setLoading(false)
       });
   });
 
@@ -43,13 +51,12 @@ export default function StudentsTable() {
             <TableBody>
               {studentsData.map((row) => (
                 <TableRow
-                  key={row.firstName}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell align="right">{row.firstName}</TableCell>
-                  <TableCell align="right">{row.lastName}</TableCell>
-                  <TableCell align="right">{row.gender}</TableCell>
-                  <TableCell align="right">{row.age}</TableCell>
+                  <TableCell /* align="right" */>{row.firstName}</TableCell>
+                  <TableCell /* align="right" */>{row.lastName}</TableCell>
+                  <TableCell /* align="right" */>{row.gender}</TableCell>
+                  <TableCell /* align="right" */>{row.age}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -59,3 +66,8 @@ export default function StudentsTable() {
     </>
   );
 }
+
+// const list = [1, 2, 3, 4, 5, 6, 7];
+// list[3];
+// const example = { key: "value" };
+// example[key]
