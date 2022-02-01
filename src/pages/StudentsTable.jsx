@@ -14,22 +14,35 @@ export default function StudentsTable() {
   const [studentsData, setStudentsData] = useState([]);
 
   useEffect(() => {
-    getStudentsData()
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        const keysList = Object.keys(data);
-        const dataList = [];
-        keysList.map((key) => {
-          dataList.push(data[key]);
-        });
-        console.log(dataList);
-        setStudentsData(dataList)
-        setLoading(false)
+    // getStudentsData()
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //     const keysList = Object.keys(data);
+    //     const dataList = [];
+    //     keysList.map((key) => {
+    //       dataList.push(data[key]);
+    //     });
+    //     console.log(dataList);
+    //     setStudentsData(dataList)
+    //     setLoading(false)
+    //   });
+
+    getStudentsData().then((res) => {
+      const data = res.data
+      console.log(data);
+      const keysList = Object.keys(data);
+      const dataList = [];
+      keysList.map((key) => {
+        dataList.push(data[key]);
       });
-  });
+      console.log(dataList);
+      setStudentsData(dataList);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <>
@@ -71,3 +84,8 @@ export default function StudentsTable() {
 // list[3];
 // const example = { key: "value" };
 // example[key]
+
+
+//useEffect
+// On Mount
+// On Update []

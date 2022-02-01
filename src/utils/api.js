@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const studentsData = [
   {
     name: "Rajesh",
@@ -23,18 +25,28 @@ const studentsData = [
 //   });
 // };
 
+// const getStudentsData = () => {
+//   return fetch(
+//     "https://axis-react-learn-default-rtdb.firebaseio.com/students.json"
+//   );
+// };
+
+// const saveStudentData = (studentData) => {
+//   return fetch(
+//     "https://axis-react-learn-default-rtdb.firebaseio.com/students.json",
+//     {
+//       method: "POST",
+//       body: JSON.stringify(studentData),
+//     }
+//   );
+// };
+
 const getStudentsData = () => {
-   return fetch("https://axis-react-learn-default-rtdb.firebaseio.com/students.json")
-  };
+  return axios.get("https://axis-react-learn-default-rtdb.firebaseio.com/students.json")
+};
 
 const saveStudentData = (studentData) => {
-  return fetch(
-    "https://axis-react-learn-default-rtdb.firebaseio.com/students.json",
-    {
-      method: "POST",
-      body: JSON.stringify(studentData),
-    }
-  );
+  return axios.post('https://axis-react-learn-default-rtdb.firebaseio.com/students.json', studentData)
 };
 
 export { getStudentsData, saveStudentData };
