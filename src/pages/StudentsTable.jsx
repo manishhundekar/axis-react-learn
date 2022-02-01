@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,7 +12,6 @@ import { getStudentsData } from "../utils/api";
 export default function StudentsTable() {
   const [loading, setLoading] = useState(true);
   const [studentsData, setStudentsData] = useState([]);
-
   useEffect(() => {
     // getStudentsData()
     //   .then((res) => {
@@ -31,7 +30,7 @@ export default function StudentsTable() {
     //   });
 
     getStudentsData().then((res) => {
-      const data = res.data
+      const data = res.data;
       console.log(data);
       const keysList = Object.keys(data);
       const dataList = [];
@@ -84,7 +83,6 @@ export default function StudentsTable() {
 // list[3];
 // const example = { key: "value" };
 // example[key]
-
 
 //useEffect
 // On Mount
